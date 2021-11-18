@@ -19,10 +19,10 @@ public class BaseTest {
         configReader = new ConfigReader();
         prop = configReader.init_prop();
         String browserName = prop.getProperty("browser");
-      //  driverFactory = new DriverFactory();
+        driverFactory = new DriverFactory();
 
-        System.setProperty("webdriver.chrome.driver", "C://Users//PK//Downloads//chromedriver.exe");
-        //driver = driverFactory.init_driver(browserName);
+      //  System.setProperty("webdriver.chrome.driver", "C://Users//PK//Downloads//chromedriver.exe");
+        driver = driverFactory.init_driver(browserName);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
