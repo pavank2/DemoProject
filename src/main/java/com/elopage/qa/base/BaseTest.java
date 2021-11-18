@@ -4,6 +4,7 @@ import com.elopage.qa.factory.DriverFactory;
 import com.elopage.qa.util.ConfigReader;
 import com.elopage.qa.util.TestUtil;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -18,8 +19,11 @@ public class BaseTest {
         configReader = new ConfigReader();
         prop = configReader.init_prop();
         String browserName = prop.getProperty("browser");
-        driverFactory = new DriverFactory();
-        driver = driverFactory.init_driver(browserName);
+      //  driverFactory = new DriverFactory();
+
+        System.setProperty("webdriver.chrome.driver", "C://Users//PK//Downloads//chromedriver.exe");
+        //driver = driverFactory.init_driver(browserName);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
