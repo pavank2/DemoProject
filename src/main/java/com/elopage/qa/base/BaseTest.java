@@ -29,6 +29,7 @@ public class BaseTest {
 //        driverFactory = new DriverFactory();
 //        driver = driverFactory.init_driver(browserName);
         String browser = System.getProperty("browser");
+        System.out.println("Browser: "+browser);
         if (browser == "chrome") {
           ChromeOptions  options = new ChromeOptions();
             options.addArguments("--enable-automation");
