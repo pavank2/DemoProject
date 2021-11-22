@@ -44,7 +44,6 @@ public class SignInPage extends BaseTest {
         email.sendKeys(mail);
         password.sendKeys(pass);
         signInButton.click();
-
     }
 
     public boolean invalidCredWarningVisible(){
