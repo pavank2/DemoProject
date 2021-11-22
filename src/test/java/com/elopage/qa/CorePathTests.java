@@ -64,6 +64,7 @@ public class CorePathTests extends BaseTest {
         String invalidPassword = prop.getProperty("invalidPass");
         signInPage.signIn(username,invalidPassword);
         Assert.assertTrue(signInPage.invalidCredWarningVisible());
+        System.out.println("Test");
 
     }
 
