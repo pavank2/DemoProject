@@ -51,7 +51,6 @@ public class CorePathTests extends BaseTest {
        String username= prop.getProperty("user");
        String password = prop.getProperty("pass");
        signInPage.signIn(username,password);
-
        Assert.assertTrue(signInPage.signInConfirmed());
 
 
