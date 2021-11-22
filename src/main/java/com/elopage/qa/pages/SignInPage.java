@@ -1,11 +1,14 @@
 package com.elopage.qa.pages;
 
 import com.elopage.qa.base.BaseTest;
+import com.elopage.qa.util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -24,6 +27,12 @@ public class SignInPage extends BaseTest {
     @FindBy(css="button[type='submit']")
     private WebElement signInButton;
 
+    @FindBy(xpath="//div[contains(text(),'Invalid email or password')]")
+    private List<WebElement> signInError;
+
+    @FindBy(xpath="//div[contains(text(),'Hello,')]")
+    private List<WebElement> signInConfirm;
+
 
     public SignInPage(WebDriver driver) {
         this.driver = driver;
@@ -38,8 +47,13 @@ public class SignInPage extends BaseTest {
 
     }
 
-    //public boolean checkUserSignedOut(){
-    //    return continueButton.isDisplayed();
- //   }
+    public boolean invalidCredWarningVisible(){
+        TestUtil.sleepForNSeconds(1);
+        return signInError.size() > 0;
+    }
+    public boolean signInConfirmed(){
+        TestUtil.sleepForNSeconds(1);
+        return signInConfirm.size() > 0;
+    }
 
 }

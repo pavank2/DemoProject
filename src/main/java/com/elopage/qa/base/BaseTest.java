@@ -28,44 +28,22 @@ public class BaseTest {
 //        String browserName = prop.getProperty("browser");
 //        driverFactory = new DriverFactory();
 //        driver = driverFactory.init_driver(browserName);
-//        String browser = System.getProperty("browser");
-//        System.out.println("Browser: "+browser);
-//        if (browser == "chrome") {
-          ChromeOptions  options = new ChromeOptions();
-            options.addArguments("--enable-automation");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-extensions");
-            options.addArguments("--dns-prefetch-disable");
-            options.addArguments("--disable-gpu");
-            // options.addArguments("--headless");
-            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-            try {
-                String url = System.getProperty("url");
 
-                driver = new RemoteWebDriver(new URL(url),options);
-            } catch (MalformedURLException e) {
+        ChromeOptions  options = new ChromeOptions();
+        options.addArguments("--enable-automation");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--dns-prefetch-disable");
+        options.addArguments("--disable-gpu");
+            // options.addArguments("--headless");
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        try {
+             String url = System.getProperty("url");
+             driver = new RemoteWebDriver(new URL(url),options);
+        } catch (MalformedURLException e) {
                 e.printStackTrace();
-            }
-//        }
-//        else {
-//            FirefoxOptions options = new FirefoxOptions();
-//            options.addArguments("--enable-automation");
-//            options.addArguments("--disable-dev-shm-usage");
-//            options.addArguments("--no-sandbox");
-//            options.addArguments("--disable-extensions");
-//            options.addArguments("--dns-prefetch-disable");
-//            options.addArguments("--disable-gpu");
-//            // options.addArguments("--headless");
-//            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-//            try {
-//                String url = System.getProperty("url");
-//
-//                driver = new RemoteWebDriver(new URL(url),options);
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        }
 
 
         //    Docker config:  "http://10.60.28.135:4444"
