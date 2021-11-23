@@ -1,7 +1,7 @@
-package com.elopage.qa.util;
+package com.spacebase.qa.util;
 
-import com.elopage.qa.base.BaseTest;
-import com.elopage.qa.factory.DriverFactory;
+import com.spacebase.qa.base.BaseTest;
+import com.spacebase.qa.factory.DriverFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;

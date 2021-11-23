@@ -1,11 +1,7 @@
-package com.elopage.qa.pages;
+package com.spacebase.qa.pages;
 
-import com.elopage.qa.base.BaseTest;
-import com.elopage.qa.util.TestUtil;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,11 +10,14 @@ import java.util.List;
 public class LandingPage {
 
     WebDriver driver;
-    @FindBy(css="a[href*='sign_in']")
-    private WebElement loginBtn;
+    @FindBy(id="price-after-tax")
+    private WebElement expectedPrice;
 
-    @FindBy(css="[id*='DeclineAll']")
-    private List<WebElement> cookies;
+    @FindBy(xpath="//div[@id='reveal-hire-accounting']//table//tr[2]//td[2]")
+    private WebElement actualPrice;
+
+    @FindBy(className="cmp-bookingrecap-button")
+    private WebElement seeFullHistory;
 
 
     public LandingPage(WebDriver driver) {
@@ -27,16 +26,18 @@ public class LandingPage {
     }
 
     public void navigateToURL(String url) {
-
         driver.get(url);
-        if (cookies.size() >0)
-            cookies.get(0).click();
     }
 
-    public void clickLoginBtn(){
-        loginBtn.click();
+    public void clickSeeFullHistory() {
+         seeFullHistory.click();
     }
 
+    public String getActualPrice(){
+       return actualPrice.getText();
+    }
 
-
+    public String getExpectedPrice(){
+       return expectedPrice.getText();
+    }
 }

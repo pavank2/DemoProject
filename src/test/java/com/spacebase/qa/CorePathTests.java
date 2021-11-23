@@ -1,14 +1,14 @@
-package com.elopage.qa;
+package com.spacebase.qa;
 
-import com.elopage.qa.base.BaseTest;
-import com.elopage.qa.pages.LandingPage;
-import com.elopage.qa.pages.SignInPage;
-import com.elopage.qa.util.ConfigReader;
+import com.spacebase.qa.base.BaseTest;
+import com.spacebase.qa.pages.LandingPage;
+import com.spacebase.qa.pages.SignInPage;
+import com.spacebase.qa.util.ConfigReader;
+import com.spacebase.qa.util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.text.DecimalFormat;
 import java.util.Properties;
 import java.util.logging.Logger;
 /**
@@ -45,28 +45,16 @@ public class CorePathTests extends BaseTest {
     }
 
     @Test (priority=0)
-    public void test_signin(){
+    public void test_invoice_is_correct(){
        System.out.println("***TEST 001***");
-       landingPage.clickLoginBtn();
        String username= prop.getProperty("user");
        String password = prop.getProperty("pass");
        signInPage.signIn(username,password);
-       Assert.assertTrue(signInPage.signInConfirmed());
+        TestUtil.sleepForNSeconds(2);
 
-
+        landingPage.clickSeeFullHistory();
+        TestUtil.sleepForNSeconds(2);
+        Assert.assertEquals(landingPage.getActualPrice(),landingPage.getExpectedPrice());
     }
-
-    @Test (priority=0)
-    public void test_signin_wrong_creds(){
-        System.out.println("***TEST 002***");
-        landingPage.clickLoginBtn();
-        String username= prop.getProperty("user");
-        String invalidPassword = prop.getProperty("invalidPass");
-        signInPage.signIn(username,invalidPassword);
-        Assert.assertTrue(signInPage.invalidCredWarningVisible());
-        System.out.println("Test");
-
-    }
-
 
 }

@@ -1,14 +1,11 @@
-package com.elopage.qa.base;
+package com.spacebase.qa.base;
 
-import com.elopage.qa.factory.DriverFactory;
-import com.elopage.qa.util.ConfigReader;
-import com.elopage.qa.util.TestUtil;
-import org.openqa.selenium.MutableCapabilities;
+import com.spacebase.qa.factory.DriverFactory;
+import com.spacebase.qa.util.ConfigReader;
+import com.spacebase.qa.util.TestUtil;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -23,27 +20,27 @@ public class BaseTest {
     private ConfigReader configReader;
 
     public WebDriver initialize() {
-//        configReader = new ConfigReader();
-//        prop = configReader.init_prop();
-//        String browserName = prop.getProperty("browser");
-//        driverFactory = new DriverFactory();
-//        driver = driverFactory.init_driver(browserName);
+        configReader = new ConfigReader();
+        prop = configReader.init_prop();
+        String browserName = prop.getProperty("browser");
+        driverFactory = new DriverFactory();
+        driver = driverFactory.init_driver(browserName);
 
-        ChromeOptions  options = new ChromeOptions();
-        options.addArguments("--enable-automation");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--dns-prefetch-disable");
-        options.addArguments("--disable-gpu");
-            // options.addArguments("--headless");
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        try {
-             String url = System.getProperty("url");
-             driver = new RemoteWebDriver(new URL(url),options);
-        } catch (MalformedURLException e) {
-                e.printStackTrace();
-        }
+//        ChromeOptions  options = new ChromeOptions();
+//        options.addArguments("--enable-automation");
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-extensions");
+//        options.addArguments("--dns-prefetch-disable");
+//        options.addArguments("--disable-gpu");
+//            // options.addArguments("--headless");
+//        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+//        try {
+//             String url = System.getProperty("url");
+//             driver = new RemoteWebDriver(new URL(url),options);
+//        } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//        }
 
 
         //    Docker config:  "http://10.60.28.135:4444"

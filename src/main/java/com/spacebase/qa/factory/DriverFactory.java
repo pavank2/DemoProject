@@ -1,4 +1,4 @@
-package com.elopage.qa.factory;
+package com.spacebase.qa.factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

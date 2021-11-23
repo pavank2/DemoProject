@@ -1,4 +1,4 @@
-package com.elopage.qa.util;
+package com.spacebase.qa.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

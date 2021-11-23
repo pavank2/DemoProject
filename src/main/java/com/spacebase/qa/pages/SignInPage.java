@@ -1,12 +1,11 @@
-package com.elopage.qa.pages;
+package com.spacebase.qa.pages;
 
-import com.elopage.qa.base.BaseTest;
-import com.elopage.qa.util.TestUtil;
+import com.spacebase.qa.base.BaseTest;
+import com.spacebase.qa.util.TestUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,21 +16,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class SignInPage extends BaseTest {
     WebDriver driver;
-    @FindBy(id="email")
+    @FindBy(id="id_username")
     private WebElement email;
 
 
-    @FindBy(id="password")
+    @FindBy(id="id_password")
     private WebElement password;
 
-    @FindBy(css="button[type='submit']")
+    @FindBy(id="login-button")
     private WebElement signInButton;
-
-    @FindBy(xpath="//div[contains(text(),'Invalid email or password')]")
-    private List<WebElement> signInError;
-
-    @FindBy(xpath="//div[contains(text(),'Hello,')]")
-    private List<WebElement> signInConfirm;
 
 
     public SignInPage(WebDriver driver) {
@@ -44,15 +37,6 @@ public class SignInPage extends BaseTest {
         email.sendKeys(mail);
         password.sendKeys(pass);
         signInButton.click();
-    }
-
-    public boolean invalidCredWarningVisible(){
-        TestUtil.sleepForNSeconds(1);
-        return signInError.size() > 0;
-    }
-    public boolean signInConfirmed(){
-        TestUtil.sleepForNSeconds(1);
-        return signInConfirm.size() > 0;
     }
 
 }
