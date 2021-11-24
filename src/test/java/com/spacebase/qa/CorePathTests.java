@@ -12,9 +12,10 @@ import org.testng.annotations.*;
 import java.util.Properties;
 import java.util.logging.Logger;
 /**
- * Two E2E Tests for the two core paths for the Checkout functionality
- * Test 1: User signs in, searches for two products, selects the cheapest available ones, adds them to cart and verifies the amount
- * Test 2: Searches for products first, selects a single product, adds them to cart and verifies user sign in during checkout
+ *
+ * One automated test which checks if the amount on the main payments page and the invoice
+ * in the full history page is matching exactly.
+ * This test case FAILS currently due to the bug on the UI.
  * @Author: PK
  *
  */
